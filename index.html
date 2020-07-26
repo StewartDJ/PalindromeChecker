@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel ="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <script src="https://use.fontawesome.com/c4e8494b63.js"></script>
+</head>
+<body>
+
+
+
+<div id="checker" class="hasABox">
+    <center>
+    <form>
+        <p><h1> Palindrome Checker </h1></p>
+        <br>
+        <p>
+            <p><input id ="palindrome" type="text" required value =""></input> </p>
+        </p> 
+    </form>
+    <button type="button" class="btn btn-warning" onCLick="runJavaFunc()"> <i class="fa fa-search" aria-hidden="true"> </i> Check it!</button>
+   
+</center>
+
+    <div id ="yeeOrNay">
+
+    </div>
+    
+<script>
+function runJavaFunc() {
+console.log("it's clicked")
+var pal = document.getElementById("palindrome").value
+console.log(pal) 
+var regex = /[a-zA-Z0-9]/gi;
+var readToMe = pal.toUpperCase();
+console.log(readToMe)
+var splitTheLetters = pal.split("");
+console.log(splitTheLetters)
+var reverseTheWord = splitTheLetters.reverse();
+  //console.log(reverseTheWord);
+  var originalWord = readToMe.toLowerCase();
+  console.log(originalWord)
+  var palindrome = reverseTheWord.join("");
+  //console.log(palindrome)
+  var equality = palindrome.toLowerCase();
+  console.log(equality)
+  var lettersOnlyOne=equality.match(regex)
+console.log(lettersOnlyOne)
+var lettersOnlyTwo=originalWord.match(regex)
+console.log(lettersOnlyTwo)
+var wordOne = lettersOnlyOne.join("")
+console.log(wordOne)
+var wordTwo = lettersOnlyTwo.join("")
+console.log(wordTwo)
+var justInCaseYouUsePoopToCheckThis = "poop";
+
+
+var postHTMLTrue = '<div class = "container"><div class = "confetti"></div><div class = "confetti"></div><div class = "confetti"><div class = "confetti2"><div class ="confetti1"></div></div></div></div></div></div><center><br><p class="style-this"> It\'s a palindrome!</p></center>'
+var postHTMLFalse = '<center><br> <img src="https://www.getdigital.eu/web/getdigital/gfx/products/__generated__resized/1100x1100/Aufkleber_Trollface.jpg" height="100px"></<br><p class="trololol"> Your <b>MOM</b>\'s a palindrome!</p><i>(Literally.)</i></center>'
+var postHTMLJustInCase = '<center><br><img src="https://www.dailydot.com/wp-content/uploads/062/68/aabe4e0fe635e508-910x512.jpg" width = "50%"></center>'
+
+if(wordOne === justInCaseYouUsePoopToCheckThis){
+    
+    document.getElementById('yeeOrNay').innerHTML = postHTMLJustInCase;
+    return alert("Poop? Definitely saw that one coming.")
+} else {
+
+
+  if(wordOne === wordTwo) 
+  { 
+    console.log("It's a palindrome!")
+    document.getElementById('yeeOrNay').innerHTML = postHTMLTrue;
+  }
+  
+
+  else { 
+    console.log("Yo mom's a palindrome!")
+    document.getElementById('yeeOrNay').innerHTML = postHTMLFalse;
+   }
+
+}
+}
+
+
+</script>
+    
+</body>
+</html>
